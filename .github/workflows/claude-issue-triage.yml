@@ -55,7 +55,7 @@ jobs:
                - Otros: `good first issue`, `needs-info`
             3. Aplica los labels con `gh issue edit ${{ github.event.issue.number }} --add-label "..."`. Si es una re-ejecución por edición, quita con `--remove-label` los labels de triage que ya no apliquen. NUNCA modifiques el título ni el cuerpo del issue.
             4. Lee el código relevante (`game.js`, `index.html`, `style.css`) para fundamentar el diagnóstico.
-            5. Publica UN solo comentario con `gh issue comment ${{ github.event.issue.number }} --edit-last --create-if-none --body "..."` (se actualiza en cada edición, sin duplicar). Escríbelo en español, en markdown, con esta estructura:
+            5. Publica UN solo comentario con `gh issue comment ${{ github.event.issue.number }} --edit-last --create-if-none --body "..."` (se actualiza en cada edición, sin duplicar). Escríbelo en español, con esta estructura. El comentario DEBE estar en formato markdown que GitHub (GitHub Flavored Markdown) renderice correctamente: encabezados con `##`, listas con `-`, código en línea con backticks, bloques de código con ``` y lenguaje, y saltos de línea reales (no secuencias literales `\n`). Para el cuerpo multilínea usa `--body-file -` con un heredoc en vez de una cadena con escapes:
 
                ## 🔍 Diagnóstico automático
                - **Resumen**: qué reporta el issue, en 1-2 líneas.

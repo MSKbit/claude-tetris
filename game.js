@@ -253,6 +253,7 @@ function drawNext() {
 function endGame() {
   gameOver = true;
   cancelAnimationFrame(animId);
+  draw(); // estado final (el rAF ya no repinta)
   overlayTitle.textContent = 'GAME OVER';
   overlayScore.textContent = `Puntuación: ${score.toLocaleString()}`;
   overlay.classList.remove('hidden');
@@ -285,6 +286,7 @@ function loop(ts) {
     }
   }
   draw();
+  if (gameOver) return; // endGame no puede cancelar el frame en curso
   animId = requestAnimationFrame(loop);
 }
 
